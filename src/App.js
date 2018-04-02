@@ -14,13 +14,13 @@ class App extends Component {
               <Link to="/">Scratch</Link>
             </Navbar.Brand>
             <Navbar.Toggle /> 
+          </Navbar.Header> 
           <Navbar.Collapse>
             <Nav pullRight>
               <NavItem href="/signup">Signup</NavItem> 
               <NavItem href="/login">Login</NavItem>
             </Nav>    
          </Navbar.Collapse>
-        </Navbar.Header> 
         </Navbar>
         <Routes /> 
       </div>
