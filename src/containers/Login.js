@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { HelpBlock, FormGroup, FormControl, ControlLabel, Button } from "react-bootstrap";
 import LoaderButton from "../components/LoaderButton";
+import { LinkContainer } from 'react-router-bootstrap';
 import "./Login.css";
 import { Auth } from "aws-amplify";
 
@@ -64,6 +65,11 @@ export default class Login extends Component{
                             onChange={this.handleChange}
                         />
                     </FormGroup>  
+                    <HelpBlock>
+                        <LinkContainer to="/changepwd">
+                          <Button bsStyle="link">Forgot Password</Button>
+                        </LinkContainer>
+                    </HelpBlock>                    
                     <LoaderButton
                         block
                         bsSize="large"
