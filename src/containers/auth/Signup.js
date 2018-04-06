@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { HelpBlock, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-import LoaderButton from "../components/LoaderButton";
+import LoaderButton from "../../components/LoaderButton";
 import "./Signup.css";
 import { Auth } from "aws-amplify";
 
