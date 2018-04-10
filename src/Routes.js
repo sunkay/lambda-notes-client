@@ -4,6 +4,7 @@ import Home from "./containers/Home";
 import Login from "./containers/auth/Login";
 import Signup from "./containers/auth/Signup";
 import ChangePassword from "./containers/auth/ChangePassword";
+import NewNote from "./containers/notes/NewNote";
 
 
 import AppliedRoute from "./components/AppliedRoute";
@@ -15,6 +16,7 @@ export default ({childProps}) =>
         <AppliedRoute path="/login" exact component={Login} props={childProps}/>
         <AppliedRoute path="/signup" exact component={Signup} props={childProps}/>
         <AppliedRoute path="/changepwd" exact component={ChangePassword} props={childProps}/>
+        <AppliedRoute path="/notes/new" exact component={NewNote} props={childProps}/>
 
         <Route component={NotFound} />
     </Switch>;
