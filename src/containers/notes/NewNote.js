@@ -3,7 +3,7 @@ import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
 import "./NewNote.css";
 import config from "../../config";
-//import { Auth } from "aws-amplify";
+import { API } from "aws-amplify";
 
 
 export default class NewNote extends Component{
@@ -37,6 +37,23 @@ export default class NewNote extends Component{
         }
 
         this.setState({isLoading: true});
+
+        try{
+            await this.createNote({
+                content: this.state.content
+            });
+            this.props.history.push("/");
+        } catch(e){
+            console.log("NewNote:handleSubmit --> event: ", e);            
+            alert(e);
+            this.setState({isLoading: false});
+        }
+    }
+
+    createNote(note){
+        return API.post("notes", "/notes", {
+            body: note
+        });
     }
 
     render(){
