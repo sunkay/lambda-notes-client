@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
 import LoaderButton from "../../components/LoaderButton";
-import { API } from "aws-amplify";
+import { API, Storage } from "aws-amplify";
 
 import "./Notes.css";
 import config from "../../config";
@@ -13,7 +13,8 @@ export default class Notes extends Component{
         this.file = null;
 
         this.state = {
-            isLoading: false,
+            isLoading: null,
+            isDeleting: null,
             note: null,
             content: "",
             attachmentURL: null
@@ -107,7 +108,7 @@ export default class Notes extends Component{
                             { this.state.note.attachment && 
                                 <FormGroup controlId="file">
                                     <ControlLabel>Attachment</ControlLabel>
-                                    <FormControl.static>
+                                    <FormControl.Static>
                                         <a
                                           target="_blank"
                                           rel="noopener noreferrer"
@@ -115,7 +116,7 @@ export default class Notes extends Component{
                                         >
                                           {this.formatFilename(this.state.note.attachment)}
                                         </a>                                          
-                                    </FormControl.static>
+                                    </FormControl.Static>
                                 </FormGroup>                              
                             }
                             <FormGroup controlId="file">
@@ -142,8 +143,8 @@ export default class Notes extends Component{
                                 text="Delete"
                                 loadingText="Deleting…"
                             />
-                        </form>}
-                    </div>
+                        </form>}            
+            </div>
         );
     }
 }
