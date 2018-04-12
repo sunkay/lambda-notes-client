@@ -29,6 +29,10 @@ export default class NewNote extends Component{
         });
     }
 
+    handleFileChange = async event => {
+        this.file = event.target.files[0];
+    }
+
     handleSubmit = async event => {
         event.preventDefault();
 
@@ -44,7 +48,7 @@ export default class NewNote extends Component{
             const attachment = this.file
                 ? await s3Upload(this.file)
                 : null;
-
+            console.log("NewNote attachment ", attachment);
             await this.createNote({
                 attachment,
                 content: this.state.content
