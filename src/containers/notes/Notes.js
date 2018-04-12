@@ -88,7 +88,7 @@ export default class Notes extends Component{
             })
             this.props.history.push("/");
         } catch(e){
-            console.log("Notes:componentDidMount ", e);
+            console.log("Notes:handleSubmit ", e);
             alert(e);
         }
     }
@@ -97,6 +97,10 @@ export default class Notes extends Component{
         return API.put("notes", `/notes/${this.props.match.params.id}`, {
             body: note
         });
+    }
+
+    deleteNote(){
+        return API.del("notes", `/notes/${this.props.match.params.id}`);
     }
 
     handleDelete = async event => {
@@ -111,6 +115,15 @@ export default class Notes extends Component{
         }
 
         this.setState({ isDeleting: true });
+
+        try{
+            await this.deleteNote();
+            this.props.history.push("/");
+        }catch(e){
+            console.log("Notes:deleteNote ", e);
+            alert(e);            
+            this.setState({ isDeleting: false });
+        }
     }
 
 
