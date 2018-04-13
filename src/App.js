@@ -6,7 +6,7 @@ import { Auth } from "aws-amplify";
 import Routes from "./Routes";
 import './App.css';
 
-class App extends Component {
+export class App extends Component {
 
   constructor(props){
     super(props);
