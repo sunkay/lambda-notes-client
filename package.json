@@ -16,6 +16,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "predeploy": "npm run build",
+    "deploy": "aws s3 sync build/ s3://notes-app-client-takecontrol --delete",
+    "postdeploy": "aws cloudfront create-invalidation --distribution-id E39U6L22001FLV --paths '/*' && aws cloudfront create-invalidation --distribution-id E39U6L22001FLV --paths '/*'",
     "eject": "react-scripts eject"
   }
 }
