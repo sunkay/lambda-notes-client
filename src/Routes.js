@@ -22,5 +22,6 @@ export default ({childProps}) =>
         <AuthenticatedRoute path="/notes/new" exact component={NewNote} props={childProps}/>
         <AuthenticatedRoute path="/notes/:id" exact component={Notes} props={childProps}/>
 
+        <AppliedRoute path="/index.html" exact component={Home} props={childProps}/>
         <Route component={NotFound} />
     </Switch>;
