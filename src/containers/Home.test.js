@@ -15,11 +15,31 @@ it('renders lander when unauthenticated', () =>{
 
 it('renders notes when authenticated', () =>{
     const wrapper = shallow(<Home />);
-    wrapper.setState({
-        notes: []
-    });
     wrapper.setProps({isAuthenticated: true})
     //console.log(wrapper.debug());
     expect(wrapper.find('.notes').length).toBe(1);
     expect(wrapper.find(ListGroup).length).toBe(1);
+});
+
+it('renders a correct list of notes when authenticated', () =>{
+    const wrapper = shallow(<Home />);
+    wrapper.setState({
+        isLoading: false,
+        notes: [
+            {
+                noteId: 1,
+                content: "Test1 Content",
+                createdAt: 1522596848355
+            },
+            {
+                noteId: 2,
+                content: "Test2 Content",
+                createdAt: 1522596848355
+            }
+        ]
+    });
+    wrapper.setProps({isAuthenticated: true})
+    //console.log(wrapper.debug());
+    expect(wrapper.find('.notes').length).toBe(1);
+    expect(wrapper.find(ListGroupItem).length).toBe(3);
 });
