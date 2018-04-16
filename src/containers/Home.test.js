@@ -73,7 +73,6 @@ it('mount test', () =>{
         children: React.cloneElement(wrapper.props().children, { isAuthenticated: true }),
     });
     //console.log(wrapper.find(Home).instance());
-    /*
     const spy = jest.spyOn(wrapper.find(Home).instance(), 'notes').mockImplementation(() => {
         notes: [
             {
@@ -90,11 +89,7 @@ it('mount test', () =>{
         
     });
 
-    wrapper.find(Home).instance().forceUpdate();
-    */
-    const spy = jest.spyOn(wrapper.find(Home).instance(), 'notes');
-    //wrapper.find(Home).instance().forceUpdate();
-    wrapper.update();
+    wrapper.find(Home).instance().forceUpdate();    
 
     console.log(wrapper.debug());
 
