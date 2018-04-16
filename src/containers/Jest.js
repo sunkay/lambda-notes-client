@@ -16,7 +16,7 @@ class Home extends Component{
     }
 
     //async componentDidMount(){
-    componentDidMount(){
+    async componentDidMount(){
         if (!this.props.isAuthenticated){
             return;
         }
