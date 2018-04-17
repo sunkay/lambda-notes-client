@@ -43,7 +43,6 @@ class Jest extends Component{
     }
 
     renderNotesList(notes){
-        console.log("RenderNotesList: ", notes);
         return [{}].concat(notes).map(
             (note, i) =>
             i !== 0
@@ -98,7 +97,6 @@ class Jest extends Component{
     }
 
     render(){
-        //console.log(this.props)
         return (
             <div className="Home">
                 {
