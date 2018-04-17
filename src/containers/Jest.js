@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { API } from "aws-amplify";
 import "./Home.css";
 
-class Home extends Component{
+class Jest extends Component{
 
     constructor(props){
         super(props);
@@ -15,15 +15,13 @@ class Home extends Component{
         }
     }
 
-    //async componentDidMount(){
     async componentDidMount(){
         if (!this.props.isAuthenticated){
             return;
         }
 
         try{
-            //const notes = await this.notes();
-            const notes = this.notes();
+            const notes =  await this.notes();
             this.setState({ notes });
         } catch(e){
             console.log(" Home:componentDidMount -> " + e);
@@ -33,24 +31,19 @@ class Home extends Component{
     }
 
     notes(){
-        //return API.get("notes", "/notes");
-        return (
-                [
-                {
-                    noteId: 1,
-                    content: "Test1 Content",
-                    createdAt: 1522596848355
-                },
-                {
-                    noteId: 2,
-                    content: "Test2 Content",
-                    createdAt: 1522596848355
-                }
-            ]
-        );
+        return new Promise((resolve, reject) => {
+                resolve([
+                    {
+                        noteId: 1,
+                        content: "Promise Content",
+                        createdAt: 1522596848355
+                    }
+                ]);
+        });
     }
 
     renderNotesList(notes){
+        console.log("RenderNotesList: ", notes);
         return [{}].concat(notes).map(
             (note, i) =>
             i !== 0
@@ -118,4 +111,4 @@ class Home extends Component{
     }
 }
 
-export default Home;
+export default Jest;
