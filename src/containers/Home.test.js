@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import { PageHeader, ListGroup, ListGroupItem } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
-import { shallow, mount, render, simulate } from 'enzyme';
+import { shallow } from 'enzyme';
 
 import Home from './Home';
 
