@@ -9,5 +9,5 @@ it('renders login page', () =>{
   const wrapper = shallow(<Login />);
   console.log(wrapper.debug());
   expect(wrapper.find(FormControl).length).toBe(2);
-  expect(wrapper.find(".Login").length).toBe(1);
+   expect(wrapper.find(".Login").length).toBe(1);
 });
